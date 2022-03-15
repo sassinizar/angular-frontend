@@ -1,0 +1,72 @@
+<div class="container-sm">
+<br>
+<div class="card">
+  
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6">
+          <form class="d-flex">
+              <input class="form-control me-2" (ngModelChange)="searchIntervention(key.value)"  #key="ngModel" 
+              ngModel name="key" id="searchName"  placeholder="بحث">
+            </form>
+          </div>
+          <div class="d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalDefault" (click)="openDialog()">
+              إضافة تداخل
+            </button>
+          </div>
+      </div>
+    </div>
+    <div class="card-body">
+       
+        <table class="table table-sm table-striped"> 
+            <thead class="thead-dark">
+                <tr>
+                    <th>المتداخل</th>
+                    <th>الإدارة</th>
+                    <th>صاحب الجواز</th>
+                    <th>التاريخ</th>
+             
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let intervention of interventions |
+                                 paginate: { itemsPerPage: 5,
+                                 currentPage: page,
+                                totalItems: totalLength 
+                            }">
+                    <td>{{intervention.intervenant}}</td>
+                    <td>{{intervention.direction}}</td>
+                    <td>{{intervention.faveur}}</td>
+                    <td>{{intervention.date}}</td> 
+                    <td><button (click) =  "updateIntervention(intervention.id)" class= "btn btn-primary" style="margin-left: 10px">تحيين</button>
+                        <!--<button (click) =  "deleteIntervention(intervention.id)" class= "btn btn-danger" style="margin-left: 10px">حذف</button>-->
+                       <!-- <button (click) =  "interventionDetails(intervention.id)" class= "btn btn-info" style="margin-left: 10px">عرض</button>-->
+                       <button (click) =  "deleteIntervention(intervention.id)" class= "btn btn-danger" style="margin-left: 10px">حذف</button>
+                       <button (click) =  "interventionDetails(intervention.intervenant)" class= "btn btn-info" style="margin-left: 10px">إحصاء</button>
+                      </td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  <!-- <div class="card-footer text-muted">
+      <nav aria-label="مثال آخر لترقيم الصفحات">
+          <ul class="pagination pagination-lg flex-wrap" id="foo">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">التالى</a>
+            </li>
+          </ul>
+        </nav>
+    </div>-->
+  </div>
+</div>

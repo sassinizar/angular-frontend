@@ -1,0 +1,46 @@
+    <div class="col-md-6 offset-md-3">
+        <h3> تداخل جديد </h3>
+        <form (ngSubmit) = "onSubmit()" class="row g-3">
+        
+            <div class="form-group" class="col-md-6">
+                <label> المتداخل</label>
+                <input type="text" class ="form-control" id = "Intervenant"
+                    [(ngModel)] = "intervention.intervenant" name = "Intervenant">
+            </div>
+           
+            <div class="form-group" class="col-md-6">
+                <label> الإدارة</label>
+                <input type="text" class ="form-control" id = "direction"
+                    [(ngModel)] = "intervention.direction" name = "direction">
+            </div>
+          
+            <div class="form-group" class="col-md-6">
+          <!--   <input type="text" class ="form-control" id = "date"
+                    [(ngModel)] = "intervention.date" value="{today.toString()}" name = "date">
+                <label> التاريخ</label>
+                             -->   
+              <input matInput [matDatepicker]="picker" name="date" id="date"  [(ngModel)] = "intervention.date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+           
+            <div class="form-group" class="col-md-9">
+                <label> صاحب الجواز</label>
+                <input type="text" class ="form-control" id = "titulaire"
+                    [(ngModel)] = "intervention.faveur" name = "titulaire">
+            </div>
+            
+             <!--<div>
+              <button type="submit" class="btn btn-success btn-lg">إضافة</button>
+            </div>-->
+            <div class="bd-example">
+            <div class="d-flex justify-content-between flex-wrap">
+              <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalDefault">
+                إضافة تداخل
+              </button>
+            </div>
+          </div>
+        
+        </form>
+        </div> 
+    

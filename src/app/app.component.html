@@ -1,0 +1,51 @@
+<!--<nav class="navbar navbar-expand-sm bg-primary navbar-dark " >
+    <ul class = "navbar-nav ml-auto">
+        <li class="nav-item float-right">
+            <a routerLink="interventions" routerLinkActive="Active" class="nav-link float-right" >التداخلات</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="create-intervention" routerLinkActive="Active" class="nav-link">Add intervention</a>
+        </li>
+    </ul>
+</nav>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="C:\Users\DGFE\Documents\workspace-spring-tool-suite-4-4.12.0.RELEASE\angular-frontend\logo2.svg" width="38" height="30" class="d-inline-block align-top"  loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="تبديل التنقل">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+        <ul class="navbar-nav me-auto mb-6 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">الإدارة العامة لشرطة الحدود والأجانب</a>
+          </li>
+          <li class="nav-item">    
+            <a routerLink="stats" routerLinkActive="Active" class="nav-link float-right">إحصاءيات</a>
+          </li>
+           <li class="nav-item">
+            <a routerLink="create-intervention" routerLinkActive="Active" class="nav-link">إضافة تداخل</a>
+          </li>
+        </ul>
+      <!--
+        <form class="d-flex">
+          <input class="form-control me-2"  
+           name="key" id="searchName"  placeholder="بحث">
+        </form>
+      -->  
+      </div>
+    </div>
+  </nav>
+
+<div></div>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
+
+<footer>
+    <div class = "footer">
+        <span>All rights reserved 2022  @Nizar SASSI</span>
+    </div>
+</footer>
+
