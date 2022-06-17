@@ -47,7 +47,7 @@ export class InterventionListComponent implements OnInit {
     for (const intervention of this.interventions) {
       if (intervention.intervenant.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || intervention.faveur.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || intervention.date.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+     /* || intervention.date.toLowerCase().indexOf(key.toLowerCase()) !== -1*/ ) {
         result.push(intervention);
         const a = result.length;
       }

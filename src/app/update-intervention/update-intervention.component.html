@@ -1,35 +1,69 @@
+
 <div class="col-md-6 offset-md-3">
+ 
+<div class="card">
+    
+<div class="card-header">
     <h3> تحيين تداخل </h3>
+</div>
+<div class="card-body">
     <form (ngSubmit) = "onSubmit()">
-    
-        <div class="form-group">
-            <label>المتداخل</label>
-            <input type="text" class ="form-control" id = "Intervenant"
-                [(ngModel)] = "intervention.intervenant" name = "Intervenant">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>المتداخل</mat-label>
+                    <input matInput 
+                        placeholder="المتداخل"  
+                        id = "Intervenant"
+                        [(ngModel)] = "intervention.intervenant"
+                        name="intervenant"/>
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" >
+                    <mat-label>الإدارة العامة</mat-label>
+                       <mat-select [(ngModel)]="selectedValue">
+                           <mat-option *ngFor="let dir of direction" [value]="dir">{{dir}}</mat-option>
+                       </mat-select>
+                 </mat-form-field>
+            </div>
         </div>
-    
-        <div class="form-group">
-            <label> الإدارة</label>
-            <input type="text" class ="form-control" id = "direction"
-                [(ngModel)] = "intervention.direction" name = "direction">
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>تاريخ التداخل</mat-label>
+                <input  matInput [matDatepicker]="picker" name="dateInterv" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
         </div>
-    
-        <div class="form-group">
-            <label> التاريخ</label>
-            <input type="text" class ="form-control" id = "date"
-                [(ngModel)] = "intervention.date" name = "date">
-        </div>
+  
+     <div class="col">
+        <mat-form-field appearance="outline">
+            <mat-label>صاحب الجواز</mat-label>
+            <input matInput  maxlength="256"  [(ngModel)] = "intervention.faveur" name="faveur" placeholder="صاحب الجواز" />
+        </mat-form-field>
+     </div>
+    </div>
         
-         
-        <div class="form-group">
-            <label> صاحب الجواز</label>
-            <input type="text" class ="form-control" id = "titulaire"
-                [(ngModel)] = "intervention.faveur" name = "titulaire">
-        </div>
-        <div>
-            <button class = "btn btn-success" type ="submit">تحيين</button>
-        </div>
-        
-    
+     
+   <div class="row">
+    <mat-form-field class="example-full-width" appearance="outline">
+        <textarea matInput [(ngModel)] = "intervention.remarque" name="remarque"  placeholder="ملاحظات" ></textarea>
+    </mat-form-field>
+   </div>
+     
+
+               <div class="row">
+                   <div class="col-2">
+                    <button mat-raised-button color="primary" type="submit">إضافة</button>
+                   </div>
+                   <div class="col-2">
+                    <button mat-raised-button color="warn">إلغاء</button>
+                   </div>  
+               </div>         
     </form>
+</div>
+    
+</div>
 </div>

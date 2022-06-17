@@ -19,7 +19,7 @@
                     [(ngModel)] = "intervention.date" value="{today.toString()}" name = "date">
                 <label> التاريخ</label>
                              -->   
-              <input matInput [matDatepicker]="picker" name="date" id="date"  [(ngModel)] = "intervention.date">
+              <input matInput [matDatepicker]="picker" name="date" id="date"  [(ngModel)] = "intervention.dateInterv">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </div>

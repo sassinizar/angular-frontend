@@ -13,7 +13,14 @@ export class UpdateInterventionComponent implements OnInit {
 
   id: number =4;
   intervention: Intervention = new Intervention();
- 
+  
+  direction = ["الإدارة العامة لشرطة الحدود والأجانب",
+  "الإدارة العامة للمصالح الفنية"
+  ,"الإدارة العامة للأمن العمومي"
+  ,"الإدارة العامة للمصالح المختصة",
+  "الإدارة العامة لتكوين"];
+
+  selectedValue = null;
   constructor(private interventionService: InterventionService,
     private route: ActivatedRoute,
     private router: Router) { }

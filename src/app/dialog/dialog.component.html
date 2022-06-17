@@ -4,38 +4,43 @@
 <form [formGroup] = "intervGroup">
     <mat-form-field appearance="outline">
       <mat-label>المتداخل</mat-label>
-      <input matInput formControlName="intervName" placeholder="المتداخل"  id = "Intervenant"/>
+      <input matInput formControlName="intervenant"  placeholder="المتداخل"  id = "Intervenant"/>
     </mat-form-field>
     
     <mat-form-field appearance="outline" >
          <mat-label>الإدارة العامة</mat-label>
-            <mat-select formControlName="direction">
+            <mat-select formControlName="direction" >
                 <mat-option *ngFor="let dir of direction" [value]="dir"> {{dir}} </mat-option>
             </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>تاريخ التداخل</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="dateInterv">
+        <input  matInput [matDatepicker]="picker" formControlName="dateInterv" >
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-
+  
     <mat-form-field appearance="outline">
         <mat-label>صاحب الجواز</mat-label>
-        <input matInput formControlName="titulaire" maxlength="256" placeholder="صاحب الجواز" />
+        <input matInput formControlName="faveur" maxlength="256" placeholder="صاحب الجواز" />
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="outline">
-        <textarea matInput formControlName="remarque" placeholder="ملاحظات" ></textarea>
+        <textarea matInput formControlName="remarque"  placeholder="ملاحظات" ></textarea>
     </mat-form-field>
 
 
     <section>
-            <div class="example-button-row">
-                <button mat-raised-button color="primary" (click)="onSubmit()">إضافة</button>
+            <div class="row">
+                <div class="col-2">
+                    <button mat-raised-button color="primary" (click)="saveIntervention()">إضافة</button>
+                </div>
                 
-                <button mat-raised-button color="warn">إلغاء</button>
+                <div class="col-2">
+                    <button mat-raised-button color="warn">إلغاء</button>
+                </div>
+               
             </div>
     </section>
 </form>

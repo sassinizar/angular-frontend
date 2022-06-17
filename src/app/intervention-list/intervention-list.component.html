@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let intervention of interventions |
+                <tr *ngFor = "let intervention of interventions.reverse() |
                                  paginate: { itemsPerPage: 5,
                                  currentPage: page,
                                 totalItems: totalLength 
@@ -38,7 +38,7 @@
                     <td>{{intervention.intervenant}}</td>
                     <td>{{intervention.direction}}</td>
                     <td>{{intervention.faveur}}</td>
-                    <td>{{intervention.date}}</td> 
+                    <td>{{intervention.dateInterv | date: 'dd/MM/YYYY'}}</td> 
                     <td><button (click) =  "updateIntervention(intervention.id)" class= "btn btn-primary" style="margin-left: 10px">تحيين</button>
                         <!--<button (click) =  "deleteIntervention(intervention.id)" class= "btn btn-danger" style="margin-left: 10px">حذف</button>-->
                        <!-- <button (click) =  "interventionDetails(intervention.id)" class= "btn btn-info" style="margin-left: 10px">عرض</button>-->

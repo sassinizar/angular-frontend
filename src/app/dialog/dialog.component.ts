@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { Intervention } from '../intervention';
 import { InterventionService } from '../intervention.service';
 
@@ -11,10 +13,12 @@ import { InterventionService } from '../intervention.service';
 })
 export class DialogComponent implements OnInit {
 
+   dateInterv = new Date();
 
   intervention: Intervention = new Intervention();
 
   intervGroup !: FormGroup;
+  
 
   direction = ["الإدارة العامة لشرطة الحدود والأجانب",
   "الإدارة العامة للمصالح الفنية"
@@ -24,33 +28,40 @@ export class DialogComponent implements OnInit {
 
 
  constructor(private interventionService: InterventionService, 
-   private router: Router, private formBuilder: FormBuilder ) { }
+   private router: Router, private formBuilder: FormBuilder, private dialogRef: MatDialogRef<DialogComponent> ) { }
 
  ngOnInit(): void {
    this.intervGroup = this.formBuilder.group({
-     intervName : ['',Validators.required],
+     intervenant : ['',Validators.required],
      direction : ['',Validators.required],
      dateInterv: ['',Validators.required],
-     titulaire :['',Validators.required],
+     faveur :['',Validators.required],
      remarque: ['',Validators.required],
    })
+  
  }
- 
- saveIntervention(){
-   this.interventionService.createIntervention(this.intervention).subscribe( data =>{
-     this.goToInterventionList();
-   },
-   error => console.log(error));
- }
+
+
+ saveIntervention(){   
+   this.interventionService.createIntervention(this.intervGroup.value).subscribe({
+          next:(res)=>{
+              alert("تمت إضافة تداخل");
+              this.intervGroup.reset();
+              this.dialogRef.close('save');
+          
+               
+               
+              }
+          },)
+  }   
 
  goToInterventionList(){
    this.router.navigate(['/interventions']);
  }
 
  onSubmit(){
+   console.log(this.intervention)
    this.saveIntervention()
  }
-
-
 
 }
